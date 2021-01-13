@@ -49,6 +49,13 @@ public class Item {
 	public void setItemValue(String itemValue) {
 		this.itemValue = itemValue;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Item id=" + id + ", item name=" + itemName + ", item value=" + itemValue;
+	}
+	
 	
 	
 	
