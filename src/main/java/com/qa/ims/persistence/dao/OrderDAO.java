@@ -61,7 +61,7 @@ public class OrderDAO implements Dao<Order> {
 	public Order readOrder(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT FROM orders where orderID = " + id);) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM orders where orderID = " + id);) {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {
