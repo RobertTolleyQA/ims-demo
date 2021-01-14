@@ -4,21 +4,21 @@ public class OrderLine {
 	
 	private Long id;
 	private Long orderID;
-	private Long custID;
+	private Long itemID;
 	private int quantity;
 	
 	public OrderLine(Long id, Long orderID, Long custID, int quantity) {
 		super();
 		this.id = id;
 		this.orderID = orderID;
-		this.custID = custID;
+		this.itemID = custID;
 		this.quantity = quantity;
 	}
 
 	public OrderLine(Long orderID, Long custID, int quantity) {
 		super();
 		this.orderID = orderID;
-		this.custID = custID;
+		this.itemID = custID;
 		this.quantity = quantity;
 	}
 	
@@ -40,12 +40,12 @@ public class OrderLine {
 		this.orderID = orderID;
 	}
 
-	public Long getCustID() {
-		return custID;
+	public Long getItemID() {
+		return itemID;
 	}
 
-	public void setCustID(Long custID) {
-		this.custID = custID;
+	public void getItemID(Long custID) {
+		this.itemID = custID;
 	}
 
 	public int getQuantity() {
@@ -58,7 +58,7 @@ public class OrderLine {
 
 	@Override
 	public String toString() {
-		return "OrderLine [id=" + id + ", orderID=" + orderID + ", custID=" + custID + ", quantity=" + quantity + "]";
+		return "OrderLine [id=" + id + ", orderID=" + orderID + ", custID=" + itemID + ", quantity=" + quantity + "]";
 	}
 	
 	
