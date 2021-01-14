@@ -6,10 +6,11 @@ public class Order {
 	private Long orderID;
 	
 	
-	public Order(long custID, long orderID) {
+	public Order(long orderID, long custID) {
 		super();
-		this.custID = custID;
 		this.orderID = orderID;
+		this.custID = custID;
+
 	}
 	
 
@@ -43,7 +44,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order custID=" + custID + ", orderID=" + orderID;
+		return "Order orderID=" + orderID + ", custID=" + custID;
 	} 
 	
 	
