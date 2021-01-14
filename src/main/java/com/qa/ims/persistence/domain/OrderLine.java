@@ -5,9 +5,9 @@ public class OrderLine {
 	private Long id;
 	private Long orderID;
 	private Long itemID;
-	private int quantity;
+	private Integer quantity;
 	
-	public OrderLine(Long id, Long orderID, Long custID, int quantity) {
+	public OrderLine(Long id, Long orderID, Long custID, Integer quantity) {
 		super();
 		this.id = id;
 		this.orderID = orderID;
@@ -15,7 +15,7 @@ public class OrderLine {
 		this.quantity = quantity;
 	}
 
-	public OrderLine(Long orderID, Long custID, int quantity) {
+	public OrderLine(Long orderID, Long custID, Integer quantity) {
 		super();
 		this.orderID = orderID;
 		this.itemID = custID;
@@ -52,7 +52,7 @@ public class OrderLine {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
