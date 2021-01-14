@@ -54,7 +54,7 @@ public class ItemDAO implements Dao<Item> {
 	public Item readItem(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT FROM item where id = " + id);) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM item where id = " + id);) {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {

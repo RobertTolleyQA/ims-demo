@@ -22,5 +22,9 @@ public class Utils {
 	public String getInput() {
 		return scanner.nextLine();
 	}
+	
+	public Long getID() {
+		return scanner.nextLong();
+	}
 
 }
