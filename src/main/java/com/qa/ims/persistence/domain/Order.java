@@ -11,6 +11,14 @@ public class Order {
 		this.custID = custID;
 		this.orderID = orderID;
 	}
+	
+
+
+	public Order(Long custID) {
+		super();
+		this.custID = custID;
+	}
+
 
 
 	public long getCustID() {
