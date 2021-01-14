@@ -19,7 +19,7 @@ public class OrderDAO implements Dao<Order> {
 	public List<Order> readAll() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("select * from order");) {
+				ResultSet resultSet = statement.executeQuery("select * from orders");) {
 			List<Order> order = new ArrayList<>();
 			while (resultSet.next()) {
 				order.add(modelFromResultSet(resultSet));
@@ -34,7 +34,7 @@ public class OrderDAO implements Dao<Order> {
 	public Order readLatest() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM order ORDER BY id DESC LIMIT 1");) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM orders ORDER BY id DESC LIMIT 1");) {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -49,7 +49,7 @@ public class OrderDAO implements Dao<Order> {
 	public Order create(Order order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("INSERT INTO order(custID) values('" + order.getCustID() + "')");
+			statement.executeUpdate("INSERT INTO orders(custID) values('" + order.getCustID() + "')");
 			return readLatest();
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
@@ -61,7 +61,7 @@ public class OrderDAO implements Dao<Order> {
 	public Order readOrder(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT FROM order where orderID = " + id);) {
+				ResultSet resultSet = statement.executeQuery("SELECT FROM orders where orderID = " + id);) {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -75,7 +75,7 @@ public class OrderDAO implements Dao<Order> {
 	public Order update(Order order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("update order set custID ='" + order.getCustID() +  "' where orderID =" + order.getOrderID());
+			statement.executeUpdate("update orders set custID ='" + order.getCustID() +  "' where orderID =" + order.getOrderID());
 			return readOrder(order.getOrderID());
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
@@ -88,7 +88,7 @@ public class OrderDAO implements Dao<Order> {
 	public void delete(long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("delete from order where orderID = " + id);
+			statement.executeUpdate("delete from orders where orderID = " + id);
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
