@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 import com.qa.ims.persistence.domain.OrderLine;
 import com.qa.ims.utils.DBUtils;
 
-public class OrderLineDOA implements Dao<OrderLine> {
+public class OrderLineDAO implements Dao<OrderLine> {
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	@Override
