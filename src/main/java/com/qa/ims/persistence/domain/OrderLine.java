@@ -1,0 +1,67 @@
+package com.qa.ims.persistence.domain;
+
+public class OrderLine {
+	
+	private Long id;
+	private Long orderID;
+	private Long custID;
+	private int quantity;
+	
+	public OrderLine(Long id, Long orderID, Long custID, int quantity) {
+		super();
+		this.id = id;
+		this.orderID = orderID;
+		this.custID = custID;
+		this.quantity = quantity;
+	}
+
+	public OrderLine(Long orderID, Long custID, int quantity) {
+		super();
+		this.orderID = orderID;
+		this.custID = custID;
+		this.quantity = quantity;
+	}
+	
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getOrderID() {
+		return orderID;
+	}
+
+	public void setOrderID(Long orderID) {
+		this.orderID = orderID;
+	}
+
+	public Long getCustID() {
+		return custID;
+	}
+
+	public void setCustID(Long custID) {
+		this.custID = custID;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderLine [id=" + id + ", orderID=" + orderID + ", custID=" + custID + ", quantity=" + quantity + "]";
+	}
+	
+	
+	
+
+}
