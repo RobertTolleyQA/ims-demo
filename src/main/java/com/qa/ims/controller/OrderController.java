@@ -4,25 +4,23 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.services.CrudServices;
 import com.qa.ims.utils.Utils;
 
 public class OrderController implements CrudController<Order> {
-	
+
 	public static final Logger LOGGER = LogManager.getLogger();
-	
+
 	private CrudServices<Order> OrderServices;
-	
+
 	public OrderController(CrudServices<Order> OrderServices) {
 		this.OrderServices = OrderServices;
 	}
+
 	Long getInput() {
 		return Utils.getInstance().getID();
 	}
-
 
 	@Override
 	public List<Order> readAll() {
@@ -32,8 +30,6 @@ public class OrderController implements CrudController<Order> {
 		}
 		return orderList;
 	}
-
-	
 
 	@Override
 	public Order create() {
@@ -52,8 +48,9 @@ public class OrderController implements CrudController<Order> {
 
 	@Override
 	public void delete() {
-		// TODO Auto-generated method stub
-		
-	}
+		LOGGER.info("Please enter the order ID of the order you would like to delete");
+		Long id = Long.valueOf(getInput());
+		OrderServices.delete(id);
 
+	}
 }
