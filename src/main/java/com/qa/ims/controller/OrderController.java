@@ -36,7 +36,7 @@ public class OrderController implements CrudController<Order> {
 		LOGGER.info("Please enter a customer ID");
 		Long custID = getInput();
 		Order order = OrderServices.create(new Order(custID));
-		LOGGER.info("Order created");
+		LOGGER.info("Order created" + order.getOrderID());
 		return order;
 	}
 
