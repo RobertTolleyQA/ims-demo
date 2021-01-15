@@ -65,6 +65,12 @@ public class OrderController implements CrudController<Order> {
 			}
 //		LOGGER.info(arrl);
 		
+		//Gonna have to create a separate orderlineService with its own doa and crud service with a createOrderline function
+		//eg Order orderline = orderlineService.createOrderline(new Order(orderID, itemID, quantity));
+		// array list kinda works with the output at 
+		//[Order [id=null, orderID=6, itemID=null, quantity=null], Order [id=null, orderID=6, itemID=null, quantity=null]] -- currently 
+		//Not sure if needed yet.
+		
 		return null;
 	}
 
