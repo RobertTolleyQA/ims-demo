@@ -19,6 +19,16 @@ public class Order {
 		this.itemID = itemID;
 		this.quantity = quantity;
 	}
+	
+
+
+	public Order(Long orderID, Long itemID, Integer quantity) {
+		super();
+		this.orderID = orderID;
+		this.itemID = itemID;
+		this.quantity = quantity;
+	}
+
 
 
 	//order constructor

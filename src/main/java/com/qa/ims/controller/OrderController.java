@@ -1,5 +1,6 @@
 package com.qa.ims.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -21,6 +22,10 @@ public class OrderController implements CrudController<Order> {
 	Long getInput() {
 		return Utils.getInstance().getID();
 	}
+	
+	Integer getInput1() {
+		return Utils.getInstance().getInt();
+	}
 
 	@Override
 	public List<Order> readAll() {
@@ -33,11 +38,28 @@ public class OrderController implements CrudController<Order> {
 
 	@Override
 	public Order create() {
+		ArrayList<Order> arrl = new ArrayList<>();
 		LOGGER.info("Please enter a customer ID");
 		Long custID = getInput();
 		Order order = OrderServices.create(new Order(custID));
-		LOGGER.info("Order created" + order.getOrderID());
-		return order;
+		arrl.add(order);
+		Long orderID = order.getOrderID();
+		LOGGER.info("Order created " + orderID);
+		String answer = "yes";
+		Long itemID;
+		Integer quantity;
+		while (answer == "yes") {
+			LOGGER.info("Please enter an item ID");
+			itemID = getInput();
+			LOGGER.info("Please enter an amount");
+			quantity = getInput1();
+			order = OrderServices.create(new Order(orderID, itemID, quantity));
+			arrl.add(order);
+			
+			}
+		LOGGER.info(arrl);
+		
+		return null;
 	}
 
 	@Override
