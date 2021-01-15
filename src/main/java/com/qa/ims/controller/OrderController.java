@@ -42,12 +42,12 @@ public class OrderController implements CrudController<Order> {
 
 	@Override
 	public Order create() {
-		ArrayList<Order> arrl = new ArrayList<>();
+//		ArrayList<Order> arrl = new ArrayList<>();
 		LOGGER.info("Please enter a customer ID");
 		Long custID = getInput();
 		Order order = OrderServices.create(new Order(custID));
 		Long orderID = order.getOrderID();
-		arrl.add(order);
+//		arrl.add(order);
 		LOGGER.info("Order created " + orderID);
 		String answer = "yes";
 		Long itemID;
@@ -58,12 +58,12 @@ public class OrderController implements CrudController<Order> {
 			LOGGER.info("Please enter an amount");
 			quantity = getInput1();
 			order = OrderServices.create(new Order(orderID, itemID, quantity));
-			arrl.add(order);
+//			arrl.add(order);
 			LOGGER.info("Do you want to add another item? Yes or No?");
 			answer = getAns();
 			
 			}
-		LOGGER.info(arrl);
+//		LOGGER.info(arrl);
 		
 		return null;
 	}
