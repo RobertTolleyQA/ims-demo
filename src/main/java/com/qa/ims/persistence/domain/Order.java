@@ -32,7 +32,7 @@ public class Order {
 
 
 	//order constructor
-	public Order(long orderID, long custID) {
+	public Order(Long orderID, Long custID) {
 		super();
 		this.orderID = orderID;
 		this.custID = custID;
@@ -53,7 +53,7 @@ public class Order {
 	}
 
 
-	public void setCustID(long custID) {
+	public void setCustID(Long custID) {
 		this.custID = custID;
 	}
 
@@ -63,7 +63,7 @@ public class Order {
 	}
 
 
-	public void setOrderID(long orderID) {
+	public void setOrderID(Long orderID) {
 		this.orderID = orderID;
 	}
 	

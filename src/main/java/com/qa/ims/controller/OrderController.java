@@ -26,6 +26,10 @@ public class OrderController implements CrudController<Order> {
 	Integer getInput1() {
 		return Utils.getInstance().getInt();
 	}
+	
+	String getAns() {
+		return Utils.getInstance().getInput();
+	}
 
 	@Override
 	public List<Order> readAll() {
@@ -42,8 +46,8 @@ public class OrderController implements CrudController<Order> {
 		LOGGER.info("Please enter a customer ID");
 		Long custID = getInput();
 		Order order = OrderServices.create(new Order(custID));
-		arrl.add(order);
 		Long orderID = order.getOrderID();
+		arrl.add(order);
 		LOGGER.info("Order created " + orderID);
 		String answer = "yes";
 		Long itemID;
@@ -55,6 +59,8 @@ public class OrderController implements CrudController<Order> {
 			quantity = getInput1();
 			order = OrderServices.create(new Order(orderID, itemID, quantity));
 			arrl.add(order);
+			LOGGER.info("Do you want to add another item? Yes or No?");
+			answer = getAns();
 			
 			}
 		LOGGER.info(arrl);
