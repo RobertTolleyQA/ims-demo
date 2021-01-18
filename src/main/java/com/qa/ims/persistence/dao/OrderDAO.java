@@ -19,7 +19,7 @@ public class OrderDAO implements Dao<Order> {
 	public List<Order> readAll() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("select * from orders ORDER BY orderID");) {
+				ResultSet resultSet = statement.executeQuery("select * from orderline ORDER BY id");) {
 			List<Order> order = new ArrayList<>();
 			while (resultSet.next()) {
 				order.add(modelFromResultSet(resultSet));
@@ -118,7 +118,9 @@ public class OrderDAO implements Dao<Order> {
 	@Override
 	public Order modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long orderid = resultSet.getLong("orderID");
-		Long custid = resultSet.getLong("custID");
-		return new Order(orderid, custid);}
+		Long itemid = resultSet.getLong("itemID");
+		Integer quantity = resultSet.getInt("quantity");
+		
+		return new Order(orderid, itemid, quantity);}
 
 }
