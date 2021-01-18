@@ -45,7 +45,7 @@ public class OrderController implements CrudController<Order> {
 //		ArrayList<Order> arrl = new ArrayList<>();
 		LOGGER.info("Please enter a customer ID");
 		Long custID = getInput();
-		Order order = OrderServices.create(new Order(custID));
+		Order order = OrderServices.create(new Order(custID, 0));
 		Long orderID = order.getOrderID();
 //		arrl.add(order);
 		LOGGER.info("Order created " + orderID);
@@ -53,11 +53,12 @@ public class OrderController implements CrudController<Order> {
 		Long itemID;
 		Integer quantity;
 		while (answer == "yes") {
+			order.setItteration(1);
 			LOGGER.info("Please enter an item ID");
 			itemID = getInput();
 			LOGGER.info("Please enter an amount");
 			quantity = getInput1();
-			order = OrderServices.create(new Order(orderID, itemID, quantity));
+			order = OrderServices.create(new Order(orderID, itemID, quantity, 1));
 //			arrl.add(order);
 			LOGGER.info("Do you want to add another item? Yes or No?");
 			answer = getAns();

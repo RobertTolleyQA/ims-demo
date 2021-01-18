@@ -49,11 +49,14 @@ public class OrderDAO implements Dao<Order> {
 	public Order create(Order order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
-			statement.executeUpdate("INSERT INTO orders(custID) values('" + order.getCustID() + "')");
+			if (order.getItteration() == 0) {statement.executeUpdate("INSERT INTO orders(custID) values('" + order.getCustID() + "')");
 //			statement.executeUpdate("INSERT INTO orderline(orderID, itemID, quantity) values('" + order.getOrderID() + "','"
 //					+ order.getItemID() + "','"
 //					+ order.getQuantity() + "')");
-			return readLatest();
+			return readLatest();}
+			else {
+				createOrderline(order);
+			}
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());

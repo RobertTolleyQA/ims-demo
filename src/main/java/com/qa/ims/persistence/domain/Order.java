@@ -7,10 +7,16 @@ public class Order {
 	private Long orderID;
 	private Long itemID;
 	private Integer quantity;
+	private Integer Itteration;
 	
 	
 	
 	//orderline constructor
+	
+	
+	
+	
+	
 	
 	public Order(Long id, Long orderID, Long itemID, Integer quantity) {
 		super();
@@ -20,6 +26,24 @@ public class Order {
 		this.quantity = quantity;
 	}
 	
+
+
+	public Order(Long orderID, Long itemID, Integer quantity, Integer itteration) {
+		super();
+		this.orderID = orderID;
+		this.itemID = itemID;
+		this.quantity = quantity;
+		Itteration = itteration;
+	}
+
+
+
+	public Order(Long custID, Integer itteration) {
+		super();
+		this.custID = custID;
+		Itteration = itteration;
+	}
+
 
 
 	public Order(Long orderID, Long itemID, Integer quantity) {
@@ -105,7 +129,21 @@ public class Order {
 
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
+	}
+
+
+
+	public Integer getItteration() {
+		return Itteration;
+	}
+
+
+
+	public void setItteration(Integer itteration) {
+		Itteration = itteration;
 	} 
+	
+	
 	
 	
 	
