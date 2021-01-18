@@ -48,13 +48,11 @@ public class OrderController implements CrudController<Order> {
 		Order order = OrderServices.create(new Order(custID, 0));
 		Long orderID = order.getOrderID();
 //		arrl.add(order);
-		LOGGER.info("Order created " + orderID);
+		LOGGER.info("Order " + orderID +  " created ");
 		int responce = 1;
 		Long itemID;
 		Integer quantity;
 		while (responce == 1) {
-//			order.setItteration(1);
-			LOGGER.info("responce was" + responce);
 			LOGGER.info("Please enter an item ID");
 			itemID = getID();
 			LOGGER.info("Please enter an amount");
