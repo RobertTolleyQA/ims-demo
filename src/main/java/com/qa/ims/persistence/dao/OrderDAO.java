@@ -50,9 +50,6 @@ public class OrderDAO implements Dao<Order> {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
 			if (order.getItteration() == 0) {statement.executeUpdate("INSERT INTO orders(custID) values('" + order.getCustID() + "')");
-//			statement.executeUpdate("INSERT INTO orderline(orderID, itemID, quantity) values('" + order.getOrderID() + "','"
-//					+ order.getItemID() + "','"
-//					+ order.getQuantity() + "')");
 			return readLatest();}
 			else {
 				createOrderline(order);

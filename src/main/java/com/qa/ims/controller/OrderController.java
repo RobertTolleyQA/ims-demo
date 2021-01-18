@@ -1,6 +1,6 @@
 package com.qa.ims.controller;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -19,15 +19,15 @@ public class OrderController implements CrudController<Order> {
 		this.OrderServices = OrderServices;
 	}
 
-	Long getInput() {
+	Long getID() {
 		return Utils.getInstance().getID();
 	}
 	
-	Integer getInput1() {
+	Integer getInt() {
 		return Utils.getInstance().getInt();
 	}
 	
-	String getAns() {
+	String getInput() {
 		return Utils.getInstance().getInput();
 	}
 
@@ -44,24 +44,26 @@ public class OrderController implements CrudController<Order> {
 	public Order create() {
 //		ArrayList<Order> arrl = new ArrayList<>();
 		LOGGER.info("Please enter a customer ID");
-		Long custID = getInput();
+		Long custID = getID();
 		Order order = OrderServices.create(new Order(custID, 0));
 		Long orderID = order.getOrderID();
 //		arrl.add(order);
 		LOGGER.info("Order created " + orderID);
-		String answer = "yes";
+		int responce = 1;
 		Long itemID;
 		Integer quantity;
-		while (answer == "yes") {
-			order.setItteration(1);
+		while (responce == 1) {
+//			order.setItteration(1);
+			LOGGER.info("responce was" + responce);
 			LOGGER.info("Please enter an item ID");
-			itemID = getInput();
+			itemID = getID();
 			LOGGER.info("Please enter an amount");
-			quantity = getInput1();
+			quantity = getInt();
 			order = OrderServices.create(new Order(orderID, itemID, quantity, 1));
 //			arrl.add(order);
-			LOGGER.info("Do you want to add another item? Yes or No?");
-			answer = getAns();
+			LOGGER.info("Do you want to add another item? Type '1' to continue:");
+			responce = getInt();
+			LOGGER.info("you selected " + responce);
 			
 			}
 //		LOGGER.info(arrl);
@@ -79,9 +81,9 @@ public class OrderController implements CrudController<Order> {
 	@Override
 	public Order update() {
 		LOGGER.info("Please enter the order ID of the order you would like to update");
-		Long id = Long.valueOf(getInput());
+		Long id = Long.valueOf(getID());
 		LOGGER.info("Please enter the customer ID");
-		Long custID = Long.valueOf(getInput());
+		Long custID = Long.valueOf(getID());
 		Order order = OrderServices.update(new Order(id, custID));
 		LOGGER.info("Customer Updated");
 		return order;
@@ -90,7 +92,7 @@ public class OrderController implements CrudController<Order> {
 	@Override
 	public void delete() {
 		LOGGER.info("Please enter the order ID of the order you would like to delete");
-		Long id = Long.valueOf(getInput());
+		Long id = Long.valueOf(getID());
 		OrderServices.delete(id);
 
 	}
