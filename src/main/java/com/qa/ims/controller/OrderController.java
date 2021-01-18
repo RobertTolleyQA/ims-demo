@@ -64,14 +64,10 @@ public class OrderController implements CrudController<Order> {
 			LOGGER.info("you selected " + responce);
 			
 			}
-//		LOGGER.info(arrl);
-		
-		//Gonna have to create a separate orderlineService with its own doa and crud service with a createOrderline function
-		//May want to replace the base Dao in orderDao with a new one with orderlineCreate implemented
-		//eg Order orderline = orderlineService.createOrderline(new Order(orderID, itemID, quantity));
-		// array list kinda works with the output at 
-		//[Order [id=null, orderID=6, itemID=null, quantity=null], Order [id=null, orderID=6, itemID=null, quantity=null]] -- currently 
-		//Not sure if needed yet.
+		// may need to revert back a few steps, currently looking for where "column itemid not found" is when creating orders
+		//
+		//
+		//
 		
 		return null;
 	}

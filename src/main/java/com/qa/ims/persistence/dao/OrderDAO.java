@@ -50,7 +50,7 @@ public class OrderDAO implements Dao<Order> {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
 			if (order.getItteration() == 0) {statement.executeUpdate("INSERT INTO orders(custID) values('" + order.getCustID() + "')");
-			return readLatest();}
+			return readLatestOrder();}
 			else {
 				createOrderline(order);
 			}
@@ -123,5 +123,26 @@ public class OrderDAO implements Dao<Order> {
 		Integer quantity = resultSet.getInt("quantity");
 		
 		return new Order(orderid, itemid, quantity);}
+	
+	public Order readLatestOrder() {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM orders ORDER BY orderID DESC LIMIT 1");) {
+			resultSet.next();
+			return modelFromResultSetOrder(resultSet);
+		} catch (Exception e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
+		return null;
+	}
+	
+	public Order modelFromResultSetOrder(ResultSet resultSet) throws SQLException {
+		Long orderid = resultSet.getLong("orderID");
+		Long custid = resultSet.getLong("custID");
+		
+		return new Order(orderid, custid);}
 
 }
+
+
