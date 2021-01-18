@@ -108,6 +108,7 @@ public class OrderDAO implements Dao<Order> {
 	public void delete(long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
+			statement.executeUpdate("delete from orderline where orderID = " + id);
 			statement.executeUpdate("delete from orders where orderID = " + id);
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
