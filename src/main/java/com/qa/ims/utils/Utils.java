@@ -26,5 +26,9 @@ public class Utils {
 	public Long getID() {
 		return scanner.nextLong();
 	}
+	
+	public Integer getInt() {
+		return scanner.nextInt();
+	}
 
 }

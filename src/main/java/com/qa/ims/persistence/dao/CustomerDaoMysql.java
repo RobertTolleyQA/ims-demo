@@ -11,6 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.DBUtils;
 
 public class CustomerDaoMysql implements Dao<Customer> {
@@ -122,11 +123,34 @@ public class CustomerDaoMysql implements Dao<Customer> {
 	public void delete(long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
+			ResultSet resultSet = statement.executeQuery("select * from orders WHERE custID ='" + id + "'");
+			while (resultSet.next()) {
+				Order order = modelFromResultSetOrder(resultSet);
+				Long orderID = order.getOrderID();
+				deleteOrderline(orderID);
+
+			}
+			statement.executeUpdate("delete from orders where custID = " + id);
 			statement.executeUpdate("delete from customers where id = " + id);
+
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
 		}
+	}
+
+	public Order modelFromResultSetOrder(ResultSet resultSet) throws SQLException {
+		Long orderid = resultSet.getLong("orderID");
+		Long custid = resultSet.getLong("custID");
+
+		return new Order(orderid, custid);
+	}
+
+	public void deleteOrderline(Long orderID) throws SQLException {
+		Connection connection = DBUtils.getInstance().getConnection();
+		Statement statement = connection.createStatement();
+		statement.executeUpdate("delete from orderline where orderID = " + orderID);
+
 	}
 
 }

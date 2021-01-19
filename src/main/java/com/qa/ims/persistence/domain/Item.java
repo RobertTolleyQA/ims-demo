@@ -4,17 +4,17 @@ public class Item {
 	
 	private Long id;
 	private String itemName;
-	private String itemValue;
+	private Double itemValue;
 	
 	
-	public Item(Long id, String itemName, String itemValue) {
+	public Item(Long id, String itemName, Double itemValue) {
 		super();
 		this.id = id;
 		this.itemName = itemName;
 		this.itemValue = itemValue;}
 
 
-	public Item(String itemName, String itemValue) {
+	public Item(String itemName, Double itemValue) {
 		super();
 		this.itemName = itemName;
 		this.itemValue = itemValue;
@@ -41,12 +41,12 @@ public class Item {
 	}
 
 
-	public String getItemValue() {
+	public Double getItemValue() {
 		return itemValue;
 	}
 
 
-	public void setItemValue(String itemValue) {
+	public void setItemValue(Double itemValue) {
 		this.itemValue = itemValue;
 	}
 
