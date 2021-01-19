@@ -17,5 +17,7 @@ public interface DaoOrder<T> {
 	void deleteItem(Long orderid, Long itemid);
 
 	T modelFromResultSet(ResultSet resultSet) throws SQLException;
+	
+	T cost(T t);
 
 }

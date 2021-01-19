@@ -150,11 +150,15 @@ public class OrderDAO implements DaoOrder<Order> {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();) {
 			statement.executeUpdate("delete from orderline where orderID = '" + orderid + "' AND itemID = '" + itemid + "'");
-			LOGGER.info(orderid + " " + itemid);
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
 		}
+	}
+	@Override
+	public Order cost(Order t) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -113,6 +113,8 @@ public class OrderController implements OrderCrudController<Order> {
 	@Override
 	public Order cost() {
 		// TODO Auto-generated method stub
+		LOGGER.info("Please enter the order ID you would like the total cost of");
+		Long id = getID();
 		return null;
 	}
 }
