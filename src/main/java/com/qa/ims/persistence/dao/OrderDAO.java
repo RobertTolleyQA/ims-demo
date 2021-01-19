@@ -163,31 +163,53 @@ public class OrderDAO implements DaoOrder<Order> {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery("SELECT * FROM orderline WHERE orderID ='" + orderid + "'");) {
-			List<Order> orders = new ArrayList<>();
-			Double cost;
+//			List<Order> orders = new ArrayList<>();
+			Double cost = 0.0;
 			while (resultSet.next()) {
-				orders.add(modelFromResultSet(resultSet));
-				LOGGER.info(orders);
+//				orders.add(modelFromResultSet(resultSet));
+//				LOGGER.info(orders);
 				Order order = modelFromResultSet(resultSet);
 				LOGGER.info(order);
 				Long itemID = order.getItemID();
 				Integer quantity = order.getQuantity();
 				LOGGER.info(quantity);
-				ResultSet resultSetItem = statement.executeQuery("SELECT * FROM item WHERE id ='" + itemID + "'");
-				while (resultSetItem.next()) {
-					Item item = modelFromResultSetItem(resultSetItem);
-					Double value = item.getItemValue();
-					LOGGER.info(value);
-					cost =+ value * quantity;
-					LOGGER.info(cost);
-				}
+				Double value = itemWhile(itemID);
+				LOGGER.info(value);
+				cost += value * quantity;
+				
+//				ResultSet resultSetItem = statement.executeQuery("SELECT * FROM item WHERE id ='" + itemID + "'");
+//				while (resultSetItem.next()) {
+//					Item item = modelFromResultSetItem(resultSetItem);
+//					Double value = item.getItemValue();
+//					LOGGER.info(value);
+//					cost =+ value * quantity;
+//					LOGGER.info(cost);
+//				}
 			}
+			LOGGER.info(cost);
 			return null;
 		} catch (Exception e) {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
 		return null;
+	}
+	
+	public Double itemWhile(Long itemID) throws SQLException {
+		Connection connection = DBUtils.getInstance().getConnection();
+		Statement statement = connection.createStatement();
+		ResultSet resultSetItem = statement.executeQuery("SELECT * FROM item WHERE id ='" + itemID + "'");
+		Double itemValue = null;
+		while (resultSetItem.next()) {
+			Item item = modelFromResultSetItem(resultSetItem);
+			Double value = item.getItemValue();
+			itemValue = value;
+		}
+		
+		
+		
+		return itemValue;
+		
 	}
 
 	public Item modelFromResultSetItem(ResultSet resultset) throws SQLException {
