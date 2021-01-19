@@ -162,7 +162,8 @@ public class OrderDAO implements DaoOrder<Order> {
 		// TODO Auto-generated method stub
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM orderline WHERE orderID ='" + orderid + "'");) {
+				ResultSet resultSet = statement
+						.executeQuery("SELECT * FROM orderline WHERE orderID ='" + orderid + "'");) {
 //			List<Order> orders = new ArrayList<>();
 			Double cost = 0.0;
 			while (resultSet.next()) {
@@ -183,7 +184,7 @@ public class OrderDAO implements DaoOrder<Order> {
 		}
 		return null;
 	}
-	
+
 	public Double itemWhile(Long itemID) throws SQLException {
 		Connection connection = DBUtils.getInstance().getConnection();
 		Statement statement = connection.createStatement();
@@ -194,11 +195,9 @@ public class OrderDAO implements DaoOrder<Order> {
 			Double value = item.getItemValue();
 			itemValue = value;
 		}
-		
-		
-		
+
 		return itemValue;
-		
+
 	}
 
 	public Item modelFromResultSetItem(ResultSet resultset) throws SQLException {

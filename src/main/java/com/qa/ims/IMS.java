@@ -42,22 +42,18 @@ public class IMS {
 			Domain domain = Domain.getDomain();
 
 			LOGGER.info("What would you like to do with " + domain.name().toLowerCase() + ":");
-			
+
 			Action action = null;
-			
+
 			OrderAction orderaction = null;
-			
+
 			if (domain.toString() == "ORDER") {
 				OrderAction.printActions();
 				orderaction = OrderAction.getAction();
-			}
-			else {
+			} else {
 				Action.printActions();
 				action = Action.getAction();
 			}
-
-			
-
 
 			switch (domain) {
 			case CUSTOMER:
@@ -101,35 +97,35 @@ public class IMS {
 			break;
 		default:
 			break;
-		}}
-		
-		public void doOrderAction(OrderCrudController<?> crudController, OrderAction action) {
-			switch (action) {
-			case CREATE:
-				crudController.create();
-				break;
-			case READ:
-				crudController.readAll();
-				break;
-			case ADD:
-				crudController.add();
-				break;
-			case DELETE_ORDER:
-				crudController.deleteOrder();
-				break;
-			case DELETE_ITEM:
-				crudController.deleteItem();
-				break;
-			case COST:
-				crudController.cost();
-				break;
-			case RETURN:
-				break;
-			default:
-				break;
-			}
-		
-		
+		}
+	}
+
+	public void doOrderAction(OrderCrudController<?> crudController, OrderAction action) {
+		switch (action) {
+		case CREATE:
+			crudController.create();
+			break;
+		case READ:
+			crudController.readAll();
+			break;
+		case ADD:
+			crudController.add();
+			break;
+		case DELETE_ORDER:
+			crudController.deleteOrder();
+			break;
+		case DELETE_ITEM:
+			crudController.deleteItem();
+			break;
+		case COST:
+			crudController.cost();
+			break;
+		case RETURN:
+			break;
+		default:
+			break;
+		}
+
 	}
 
 }

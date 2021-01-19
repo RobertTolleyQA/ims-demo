@@ -1,6 +1,5 @@
 package com.qa.ims.controller;
 
-
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -22,11 +21,11 @@ public class OrderController implements OrderCrudController<Order> {
 	Long getID() {
 		return Utils.getInstance().getID();
 	}
-	
+
 	Integer getInt() {
 		return Utils.getInstance().getInt();
 	}
-	
+
 	String getInput() {
 		return Utils.getInstance().getInput();
 	}
@@ -48,7 +47,7 @@ public class OrderController implements OrderCrudController<Order> {
 		Order order = OrderServices.create(new Order(custID, 0));
 		Long orderID = order.getOrderID();
 //		arrl.add(order);
-		LOGGER.info("Order " + orderID +  " created ");
+		LOGGER.info("Order " + orderID + " created ");
 		int responce = 1;
 		Long itemID;
 		Integer quantity;
@@ -62,13 +61,14 @@ public class OrderController implements OrderCrudController<Order> {
 			LOGGER.info("Do you want to add another item? Type '1' to continue:");
 			responce = getInt();
 			LOGGER.info("you selected " + responce);
-			
-			}
-		// may need to revert back a few steps, currently looking for where "column itemid not found" is when creating orders
+
+		}
+		// may need to revert back a few steps, currently looking for where "column
+		// itemid not found" is when creating orders
 		//
 		//
 		//
-		
+
 		return null;
 	}
 
@@ -88,8 +88,10 @@ public class OrderController implements OrderCrudController<Order> {
 //			arrl.add(order);
 			LOGGER.info("Do you want to add another item? Type '1' to continue:");
 			responce = getInt();
-			LOGGER.info("you selected " + responce);}
-		return null;}
+			LOGGER.info("you selected " + responce);
+		}
+		return null;
+	}
 
 	@Override
 	public void deleteOrder() {
@@ -107,7 +109,7 @@ public class OrderController implements OrderCrudController<Order> {
 		LOGGER.info("Please enter the item ID you would like to delete");
 		Long itemid = getID();
 		OrderServices.deleteItem(orderid, itemid);
-		
+
 	}
 
 	@Override
