@@ -12,7 +12,8 @@ import com.qa.ims.utils.Utils;
  */
 public enum OrderAction {
 	CREATE("To save a new item into the database"), READ("To read an item from the database"),
-	UPDATE("To change an item already in the database"), DELETE("To remove an item from the database"),
+	ADD("To change an item already in the database"), DELETE_ORDER("To remove an order from the database"),
+	DELETE_ITEM("To remove an item from an order"), COST("To calculate cost of an order"),
 	RETURN("To return to domain selection");
 
 	public static final Logger LOGGER = LogManager.getLogger();
