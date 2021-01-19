@@ -35,7 +35,7 @@ public enum OrderAction {
 	 * Prints out all possible actions
 	 */
 	public static void printActions() {
-		for (Action action : Action.values()) {
+		for (OrderAction action : OrderAction.values()) {
 			LOGGER.info(action.getDescription());
 		}
 	}
@@ -46,11 +46,11 @@ public enum OrderAction {
 	 * 
 	 * @return Action type
 	 */
-	public static Action getAction() {
-		Action action = null;
+	public static OrderAction getAction() {
+		OrderAction action = null;
 		do {
 			try {
-				action = Action.valueOf(Utils.getInstance().getInput().toUpperCase());
+				action = OrderAction.valueOf(Utils.getInstance().getInput().toUpperCase());
 			} catch (IllegalArgumentException e) {
 				LOGGER.error("Invalid selection please try again");
 			}

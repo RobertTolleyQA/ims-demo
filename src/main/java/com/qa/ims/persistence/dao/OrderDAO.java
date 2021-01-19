@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.DBUtils;
 
-public class OrderDAO implements Dao<Order> {
+public class OrderDAO implements DaoOrder<Order> {
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	@Override
