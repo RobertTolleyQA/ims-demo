@@ -75,13 +75,21 @@ public class OrderController implements CrudController<Order> {
 	@Override
 	public Order update() {
 		LOGGER.info("Please enter the order ID of the order you would like to update");
-		Long id = Long.valueOf(getID());
-		LOGGER.info("Please enter the customer ID");
-		Long custID = Long.valueOf(getID());
-		Order order = OrderServices.update(new Order(id, custID));
-		LOGGER.info("Customer Updated");
-		return order;
-	}
+		Long orderID = getID();
+		int responce = 1;
+		Long itemID;
+		Integer quantity;
+		while (responce == 1) {
+			LOGGER.info("Please enter an item ID");
+			itemID = getID();
+			LOGGER.info("Please enter an amount");
+			quantity = getInt();
+			OrderServices.create(new Order(orderID, itemID, quantity, 1));
+//			arrl.add(order);
+			LOGGER.info("Do you want to add another item? Type '1' to continue:");
+			responce = getInt();
+			LOGGER.info("you selected " + responce);}
+		return null;}
 
 	@Override
 	public void delete() {
