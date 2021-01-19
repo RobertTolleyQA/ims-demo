@@ -42,8 +42,9 @@ public class OrderServicesRemade implements OrderCrudServices<Order>{
 	}
 
 	@Override
-	public void deleteItem(Long id) {
+	public void deleteItem(Long orderid, Long itemid) {
 		// TODO Auto-generated method stub
+		OrderDao.deleteItem(orderid, itemid);
 		
 	}
 

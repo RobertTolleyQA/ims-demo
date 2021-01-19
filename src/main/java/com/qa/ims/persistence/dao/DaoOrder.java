@@ -13,6 +13,8 @@ public interface DaoOrder<T> {
 	T update(T t);
 
 	void delete(long id);
+	
+	void deleteItem(Long orderid, Long itemid);
 
 	T modelFromResultSet(ResultSet resultSet) throws SQLException;
 

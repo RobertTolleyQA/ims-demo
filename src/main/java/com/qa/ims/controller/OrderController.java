@@ -94,7 +94,7 @@ public class OrderController implements OrderCrudController<Order> {
 	@Override
 	public void deleteOrder() {
 		LOGGER.info("Please enter the order ID of the order you would like to delete");
-		Long id = Long.valueOf(getID());
+		Long id = getID();
 		OrderServices.deleteOrder(id);
 
 	}
@@ -102,6 +102,11 @@ public class OrderController implements OrderCrudController<Order> {
 	@Override
 	public void deleteItem() {
 		// TODO Auto-generated method stub
+		LOGGER.info("Please enter the order ID");
+		Long orderid = getID();
+		LOGGER.info("Please enter the item ID you would like to delete");
+		Long itemid = getID();
+		OrderServices.deleteItem(orderid, itemid);
 		
 	}
 

@@ -142,6 +142,20 @@ public class OrderDAO implements DaoOrder<Order> {
 		Long custid = resultSet.getLong("custID");
 		
 		return new Order(orderid, custid);}
+	
+	
+	@Override
+	public void deleteItem(Long orderid, Long itemid) {
+		// TODO Auto-generated method stub
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				Statement statement = connection.createStatement();) {
+			statement.executeUpdate("delete from orderline where orderID = '" + orderid + "' AND itemID = '" + itemid + "'");
+			LOGGER.info(orderid + " " + itemid);
+		} catch (Exception e) {
+			LOGGER.debug(e.getStackTrace());
+			LOGGER.error(e.getMessage());
+		}
+	}
 
 }
 

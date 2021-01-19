@@ -12,7 +12,7 @@ public interface OrderCrudServices<T> {
  
     void deleteOrder(Long id);
     
-    void deleteItem(Long id);
+    void deleteItem(Long orderid, Long itemid);
     
     T cost(T t);
 
