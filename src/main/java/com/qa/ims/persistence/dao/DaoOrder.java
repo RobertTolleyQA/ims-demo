@@ -18,6 +18,6 @@ public interface DaoOrder<T> {
 
 	T modelFromResultSet(ResultSet resultSet) throws SQLException;
 	
-	T cost(T t);
+	T cost(Long id);
 
 }

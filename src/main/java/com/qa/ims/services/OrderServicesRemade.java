@@ -49,9 +49,11 @@ public class OrderServicesRemade implements OrderCrudServices<Order>{
 	}
 
 	@Override
-	public Order cost(Order t) {
+	public Order cost(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return OrderDao.cost(id);
 	}
+
+	
 
 }

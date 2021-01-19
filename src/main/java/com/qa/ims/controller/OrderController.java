@@ -115,6 +115,7 @@ public class OrderController implements OrderCrudController<Order> {
 		// TODO Auto-generated method stub
 		LOGGER.info("Please enter the order ID you would like the total cost of");
 		Long id = getID();
+		OrderServices.cost(id);
 		return null;
 	}
 }
