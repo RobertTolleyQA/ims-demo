@@ -172,19 +172,8 @@ public class OrderDAO implements DaoOrder<Order> {
 				LOGGER.info(order);
 				Long itemID = order.getItemID();
 				Integer quantity = order.getQuantity();
-				LOGGER.info(quantity);
 				Double value = itemWhile(itemID);
-				LOGGER.info(value);
 				cost += value * quantity;
-				
-//				ResultSet resultSetItem = statement.executeQuery("SELECT * FROM item WHERE id ='" + itemID + "'");
-//				while (resultSetItem.next()) {
-//					Item item = modelFromResultSetItem(resultSetItem);
-//					Double value = item.getItemValue();
-//					LOGGER.info(value);
-//					cost =+ value * quantity;
-//					LOGGER.info(cost);
-//				}
 			}
 			LOGGER.info(cost);
 			return null;
