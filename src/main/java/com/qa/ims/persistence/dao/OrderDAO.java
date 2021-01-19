@@ -176,7 +176,7 @@ public class OrderDAO implements DaoOrder<Order> {
 				Double value = itemWhile(itemID);
 				cost += value * quantity;
 			}
-			LOGGER.info(cost);
+			LOGGER.info("Your total cost is: £" + cost);
 			return null;
 		} catch (Exception e) {
 			LOGGER.debug(e);
