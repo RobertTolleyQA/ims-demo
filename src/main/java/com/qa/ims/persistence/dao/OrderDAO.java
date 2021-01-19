@@ -36,7 +36,7 @@ public class OrderDAO implements Dao<Order> {
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery("SELECT * FROM orders ORDER BY orderID DESC LIMIT 1");) {
 			resultSet.next();
-			return modelFromResultSet(resultSet);
+			return modelFromResultSetOrder(resultSet);
 		} catch (Exception e) {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
