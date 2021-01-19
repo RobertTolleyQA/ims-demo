@@ -43,17 +43,21 @@ public class IMS {
 
 			LOGGER.info("What would you like to do with " + domain.name().toLowerCase() + ":");
 			
+			Action action = null;
+			
+			OrderAction orderaction = null;
+			
 			if (domain.toString() == "ORDER") {
 				OrderAction.printActions();
+				orderaction = OrderAction.getAction();
 			}
 			else {
 				Action.printActions();
+				action = Action.getAction();
 			}
 
 			
-			Action action = Action.getAction();
-			
-			OrderAction orderaction = OrderAction.getAction();
+
 
 			switch (domain) {
 			case CUSTOMER:

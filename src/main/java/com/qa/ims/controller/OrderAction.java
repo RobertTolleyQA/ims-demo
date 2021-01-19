@@ -47,15 +47,15 @@ public enum OrderAction {
 	 * @return Action type
 	 */
 	public static OrderAction getAction() {
-		OrderAction action = null;
+		OrderAction orderaction = null;
 		do {
 			try {
-				action = OrderAction.valueOf(Utils.getInstance().getInput().toUpperCase());
+				orderaction = OrderAction.valueOf(Utils.getInstance().getInput().toUpperCase());
 			} catch (IllegalArgumentException e) {
 				LOGGER.error("Invalid selection please try again");
 			}
-		} while (action == null);
-		return action;
+		} while (orderaction == null);
+		return orderaction;
 	}
 
 }
