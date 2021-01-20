@@ -28,6 +28,18 @@ public class Order {
 	
 
 
+	public Order(Long custID, Long id, Long orderID, Long itemID, Integer quantity, Integer itteration) {
+		super();
+		this.custID = custID;
+		this.id = id;
+		this.orderID = orderID;
+		this.itemID = itemID;
+		this.quantity = quantity;
+		Itteration = itteration;
+	}
+
+
+
 	public Order(Long orderID, Long itemID, Integer quantity, Integer itteration) {
 		super();
 		this.orderID = orderID;
@@ -72,7 +84,7 @@ public class Order {
 
 
 
-	public long getCustID() {
+	public Long getCustID() {
 		return custID;
 	}
 
@@ -82,7 +94,7 @@ public class Order {
 	}
 
 
-	public long getOrderID() {
+	public Long getOrderID() {
 		return orderID;
 	}
 
