@@ -69,17 +69,17 @@ public class OrderController implements OrderCrudController<Order> {
 		//
 		//
 
-		return null;
+		return order;
 	}
 
 	@Override
 	public Order add() {
 		LOGGER.info("Please enter the order ID of the order you would like to update");
 		Long orderID = getID();
-		int responce = 1;
+		int response = 1;
 		Long itemID;
 		Integer quantity;
-		while (responce == 1) {
+		while (response == 1) {
 			LOGGER.info("Please enter an item ID");
 			itemID = getID();
 			LOGGER.info("Please enter an amount");
@@ -87,8 +87,8 @@ public class OrderController implements OrderCrudController<Order> {
 			OrderServices.create(new Order(orderID, itemID, quantity, 1));
 //			arrl.add(order);
 			LOGGER.info("Do you want to add another item? Type '1' to continue:");
-			responce = getInt();
-			LOGGER.info("you selected " + responce);
+			response = getInt();
+			LOGGER.info("you selected " + response);
 		}
 		return null;
 	}
