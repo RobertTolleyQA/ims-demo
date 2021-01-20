@@ -44,7 +44,7 @@ public class OrderControllerTest {
 	@Test
 	public void createTest() {
 		Long custID = Long.valueOf(1L);
-		Mockito.doReturn(custID).when(ordercontroller).getID();
+		Mockito.doReturn(custID).when(ordercontroller).getInput();
 		Order order = new Order(custID, Integer.valueOf(0));
 		Order savedOrder = new Order(1L, 1L, Integer.valueOf(0));
 		Mockito.when(orderservices.create(order)).thenReturn(savedOrder);
@@ -61,17 +61,16 @@ public class OrderControllerTest {
 		assertEquals(savedNewOrder, ordercontroller.create());
 	}
 	
-	@Ignore
+
 	@Test
 	public void addTest() {
 		Long orderID = Long.valueOf(1);
 		Long itemID = Long.valueOf(1);
 		Integer quantity = 10;
-		Mockito.doReturn(orderID, itemID).when(ordercontroller).getID();
-		Mockito.doReturn(quantity).when(ordercontroller).getInt();
+		Integer response = 0;
+		Mockito.doReturn(orderID, itemID, quantity, response).when(ordercontroller).getInput();
 		Order order = new Order(1L, orderID, itemID, quantity);
 		Mockito.when(orderservices.add(order)).thenReturn(order);
-		Mockito.doReturn(0).when(ordercontroller).getInt();
 		assertEquals(order, ordercontroller.add());
 	}
 
