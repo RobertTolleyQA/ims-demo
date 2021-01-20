@@ -23,6 +23,10 @@ public class ItemController implements CrudController<Item> {
 	String getInput() {
 		return Utils.getInstance().getInput();
 	}
+	
+	Double getDouble() {
+		return Utils.getInstance().getDouble();
+	}
 
 	/**
 	 * Reads all customers to the logger
@@ -44,7 +48,7 @@ public class ItemController implements CrudController<Item> {
 		LOGGER.info("Please enter an item name");
 		String itemName = getInput();
 		LOGGER.info("Please enter an item value");
-		Double itemValue = Double.valueOf(getInput());
+		Double itemValue = getDouble();
 		Item item = itemService.create(new Item(itemName, itemValue));
 		LOGGER.info("Item created");
 		return item;
@@ -62,7 +66,7 @@ public class ItemController implements CrudController<Item> {
 		LOGGER.info("Please enter an item name");
 		String itemName = getInput();
 		LOGGER.info("Please enter an item value");
-		Double itemValue = Double.valueOf(getInput());
+		Double itemValue = getDouble();
 		Item item = itemService.update(new Item(id, itemName, itemValue));
 		LOGGER.info("Customer Updated");
 		return item;
