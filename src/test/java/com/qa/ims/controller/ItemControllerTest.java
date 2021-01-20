@@ -55,7 +55,7 @@ public class ItemControllerTest {
 			Mockito.when(itemservices.create(item)).thenReturn(savedItem);
 			assertEquals(savedItem, itemcontroller.create());
 		}
-		@Ignore
+
 		@Test
 		public void updateTest() {
 			String id = "1";
@@ -66,6 +66,14 @@ public class ItemControllerTest {
 			Item item = new Item(1L, itemName, itemValue);
 			Mockito.when(itemservices.update(item)).thenReturn(item);
 			assertEquals(item, itemcontroller.update());
+		}
+		
+		@Test
+		public void deleteTest() {
+			String id = "1";
+			Mockito.doReturn(id).when(itemcontroller).getInput();
+			itemcontroller.delete();
+			Mockito.verify(itemservices, Mockito.times(1)).delete(1L);
 		}
 		
 		
