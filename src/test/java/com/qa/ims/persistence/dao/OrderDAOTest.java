@@ -27,7 +27,7 @@ public class OrderDAOTest {
 	public static void setup() {
 		DBUtils.getInstance(DB_USER, DB_PASS);
 	}
-
+	@Ignore
 	@Test
 	public void readAllTest() {
 		OrderDAO orderdao= new OrderDAO();
