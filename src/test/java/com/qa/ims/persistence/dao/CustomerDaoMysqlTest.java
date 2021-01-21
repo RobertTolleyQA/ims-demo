@@ -91,7 +91,6 @@ public class CustomerDaoMysqlTest {
 	@Test
 	public void readCustomerTest() {
 		CustomerDaoMysql custsql = new CustomerDaoMysql();
-//		Customer customer = new Customer("rob", "bob");
 		Customer customer = custsql.create(new Customer("rob","bob"));
 		Customer savedCustomer = new Customer(1L, "rob", "bob");
 		customer = custsql.readCustomer(1L);
