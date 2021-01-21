@@ -28,6 +28,12 @@ public class Order {
 	
 
 
+	public Order() {
+		super();
+	}
+
+
+
 	public Order(Long custID, Long id, Long orderID, Long itemID, Integer quantity, Integer itteration) {
 		super();
 		this.custID = custID;

@@ -71,18 +71,19 @@ public class OrderController implements OrderCrudController<Order> {
 		int response = 1;
 		Long itemID;
 		Integer quantity;
+		Order order = new Order();
 		while (response == 1) {
 			LOGGER.info("Please enter an item ID");
 			itemID = Long.valueOf(getInput());
 			LOGGER.info("Please enter an amount");
 			quantity = Integer.valueOf(getInput());
-			OrderServices.create(new Order(orderID, itemID, quantity, 1));
+			order = OrderServices.create(new Order(orderID, itemID, quantity, 1));
 //			arrl.add(order);
 			LOGGER.info("Do you want to add another item? Type '1' to continue:");
 			response = Integer.valueOf(getInput());
 			LOGGER.info("you selected " + response);
 		}
-		return null;
+		return order;
 	}
 
 	@Override

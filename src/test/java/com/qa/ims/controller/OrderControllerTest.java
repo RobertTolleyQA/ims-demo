@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Ignore;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -13,8 +13,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.services.OrderServicesRemade;
 
@@ -40,38 +38,35 @@ public class OrderControllerTest {
 		assertEquals(orders, orderController.readAll());
 	}
 	
-	@Ignore
+
 	@Test
 	public void createTest() {
-		Long custID = Long.valueOf(1L);
-		Mockito.doReturn(custID).when(ordercontroller).getInput();
-		Order order = new Order(custID, Integer.valueOf(0));
+		String custID = "1";
+		String itemID = "1";
+		String quantity = "10";
+		String response = "0";
+		Mockito.doReturn(custID, itemID, quantity, response).when(ordercontroller).getInput();
+		Order order = new Order(Long.valueOf(custID), Integer.valueOf(0));
 		Order savedOrder = new Order(1L, 1L, Integer.valueOf(0));
+		Order neworder = new Order(1L, 1L, 10, 1);
+		Order neworder1 = new Order(1L, 1L, 10);
 		Mockito.when(orderservices.create(order)).thenReturn(savedOrder);
-		assertEquals(savedOrder, ordercontroller.create());
-		
-		Long orderID = Long.valueOf(1L);
-		Long itemID = Long.valueOf(1L);
-		Integer quantity = 10;
-		Mockito.doReturn(itemID).when(ordercontroller).getID();
-		Mockito.doReturn(quantity).when(ordercontroller).getInt();
-		Order newOrder = new Order(orderID, itemID, quantity, Integer.valueOf(1));
-		Order savedNewOrder = new Order(1L, 1L, Integer.valueOf(10), Integer.valueOf(1));
-		Mockito.when(orderservices.create(newOrder)).thenReturn(savedNewOrder);
-		assertEquals(savedNewOrder, ordercontroller.create());
+		Mockito.when(orderservices.create(neworder)).thenReturn(neworder1);
+		assertEquals(neworder1, ordercontroller.create());
 	}
 	
 
 	@Test
 	public void addTest() {
-		Long orderID = Long.valueOf(1);
-		Long itemID = Long.valueOf(1);
-		Integer quantity = 10;
-		Integer response = 0;
+		String orderID = "1";
+		String itemID = "1";
+		String quantity = "1";
+		String response = "0";
 		Mockito.doReturn(orderID, itemID, quantity, response).when(ordercontroller).getInput();
-		Order order = new Order(1L, orderID, itemID, quantity);
-		Mockito.when(orderservices.add(order)).thenReturn(order);
-		assertEquals(order, ordercontroller.add());
+		Order neworder = new Order(Long.valueOf(orderID), Long.valueOf(itemID), Integer.valueOf(quantity), 1);
+		Order neworder1 = new Order(1L, 1L, 1);
+		Mockito.when(orderservices.create(neworder)).thenReturn(neworder1);
+		assertEquals(neworder1, ordercontroller.add());
 	}
 
 }
