@@ -30,5 +30,9 @@ public class Utils {
 	public Integer getInt() {
 		return scanner.nextInt();
 	}
+	
+	public Double getDouble() {
+		return scanner.nextDouble();
+	}
 
 }

@@ -18,14 +18,6 @@ public class OrderController implements OrderCrudController<Order> {
 		this.OrderServices = OrderServices;
 	}
 
-	Long getID() {
-		return Utils.getInstance().getID();
-	}
-
-	Integer getInt() {
-		return Utils.getInstance().getInt();
-	}
-
 	String getInput() {
 		return Utils.getInstance().getInput();
 	}
@@ -43,7 +35,7 @@ public class OrderController implements OrderCrudController<Order> {
 	public Order create() {
 //		ArrayList<Order> arrl = new ArrayList<>();
 		LOGGER.info("Please enter a customer ID");
-		Long custID = getID();
+		Long custID = Long.valueOf(getInput());
 		Order order = OrderServices.create(new Order(custID, 0));
 		Long orderID = order.getOrderID();
 //		arrl.add(order);
@@ -53,13 +45,13 @@ public class OrderController implements OrderCrudController<Order> {
 		Integer quantity;
 		while (responce == 1) {
 			LOGGER.info("Please enter an item ID");
-			itemID = getID();
+			itemID = Long.valueOf(getInput());
 			LOGGER.info("Please enter an amount");
-			quantity = getInt();
+			quantity = Integer.valueOf(getInput());
 			order = OrderServices.create(new Order(orderID, itemID, quantity, 1));
 //			arrl.add(order);
 			LOGGER.info("Do you want to add another item? Type '1' to continue:");
-			responce = getInt();
+			responce = Integer.valueOf(getInput());
 			LOGGER.info("you selected " + responce);
 
 		}
@@ -69,34 +61,35 @@ public class OrderController implements OrderCrudController<Order> {
 		//
 		//
 
-		return null;
+		return order;
 	}
 
 	@Override
 	public Order add() {
 		LOGGER.info("Please enter the order ID of the order you would like to update");
-		Long orderID = getID();
-		int responce = 1;
+		Long orderID = Long.valueOf(getInput());
+		int response = 1;
 		Long itemID;
 		Integer quantity;
-		while (responce == 1) {
+		Order order = new Order();
+		while (response == 1) {
 			LOGGER.info("Please enter an item ID");
-			itemID = getID();
+			itemID = Long.valueOf(getInput());
 			LOGGER.info("Please enter an amount");
-			quantity = getInt();
-			OrderServices.create(new Order(orderID, itemID, quantity, 1));
+			quantity = Integer.valueOf(getInput());
+			order = OrderServices.create(new Order(orderID, itemID, quantity, 1));
 //			arrl.add(order);
 			LOGGER.info("Do you want to add another item? Type '1' to continue:");
-			responce = getInt();
-			LOGGER.info("you selected " + responce);
+			response = Integer.valueOf(getInput());
+			LOGGER.info("you selected " + response);
 		}
-		return null;
+		return order;
 	}
 
 	@Override
 	public void deleteOrder() {
 		LOGGER.info("Please enter the order ID of the order you would like to delete");
-		Long id = getID();
+		Long id = Long.valueOf(getInput());
 		OrderServices.deleteOrder(id);
 
 	}
@@ -105,9 +98,9 @@ public class OrderController implements OrderCrudController<Order> {
 	public void deleteItem() {
 		// TODO Auto-generated method stub
 		LOGGER.info("Please enter the order ID");
-		Long orderid = getID();
+		Long orderid = Long.valueOf(getInput());
 		LOGGER.info("Please enter the item ID you would like to delete");
-		Long itemid = getID();
+		Long itemid = Long.valueOf(getInput());
 		OrderServices.deleteItem(orderid, itemid);
 
 	}
@@ -116,7 +109,7 @@ public class OrderController implements OrderCrudController<Order> {
 	public Order cost() {
 		// TODO Auto-generated method stub
 		LOGGER.info("Please enter the order ID you would like the total cost of");
-		Long id = getID();
+		Long id = Long.valueOf(getInput());
 		OrderServices.cost(id);
 		return null;
 	}

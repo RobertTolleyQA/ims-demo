@@ -1,11 +1,11 @@
 Coverage: 34%
 # Project Title
 
-One Paragraph of project description goes here
+This IML project is an sql database based project aimed at providing a command line interface to allow the user to input and alter customer,item & order details.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+1.
 
 ### Prerequisites
 
