@@ -1,14 +1,12 @@
 package com.qa.ims.controller;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertNotNull;
+
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 
 import org.junit.Test;
 
-import com.qa.ims.persistence.domain.Domain;
+
 
 public class ActionTest {
 	

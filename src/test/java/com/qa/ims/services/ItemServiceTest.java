@@ -8,7 +8,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.qa.ims.persistence.dao.Dao;
-import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Item;
 
 @RunWith(MockitoJUnitRunner.class)
