@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Order.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">chris-ims</a> &gt; <a href="index.source.html" class="el_package">com.qa.ims.persistence.domain</a> &gt; <span class="el_source">Order.java</span></div><h1>Order.java</h1><pre class="source lang-java linenums">package com.qa.ims.persistence.domain;
+
+public class Order {
+	
+	private Long custID;
+	private Long id;
+	private Long orderID;
+	private Long itemID;
+	private Integer quantity;
+	private Integer Itteration;
+	
+	
+	
+	//orderline constructor
+	
+	
+	
+	
+	
+	
+	public Order(Long id, Long orderID, Long itemID, Integer quantity) {
+<span class="fc" id="L22">		super();</span>
+<span class="fc" id="L23">		this.id = id;</span>
+<span class="fc" id="L24">		this.orderID = orderID;</span>
+<span class="fc" id="L25">		this.itemID = itemID;</span>
+<span class="fc" id="L26">		this.quantity = quantity;</span>
+<span class="fc" id="L27">	}</span>
+	
+
+
+	public Order() {
+<span class="fc" id="L32">		super();</span>
+<span class="fc" id="L33">	}</span>
+
+
+
+	public Order(Long custID, Long id, Long orderID, Long itemID, Integer quantity, Integer itteration) {
+<span class="fc" id="L38">		super();</span>
+<span class="fc" id="L39">		this.custID = custID;</span>
+<span class="fc" id="L40">		this.id = id;</span>
+<span class="fc" id="L41">		this.orderID = orderID;</span>
+<span class="fc" id="L42">		this.itemID = itemID;</span>
+<span class="fc" id="L43">		this.quantity = quantity;</span>
+<span class="fc" id="L44">		Itteration = itteration;</span>
+<span class="fc" id="L45">	}</span>
+
+
+
+	public Order(Long orderID, Long itemID, Integer quantity, Integer itteration) {
+<span class="fc" id="L50">		super();</span>
+<span class="fc" id="L51">		this.orderID = orderID;</span>
+<span class="fc" id="L52">		this.itemID = itemID;</span>
+<span class="fc" id="L53">		this.quantity = quantity;</span>
+<span class="fc" id="L54">		Itteration = itteration;</span>
+<span class="fc" id="L55">	}</span>
+
+
+
+	public Order(Long custID, Integer itteration) {
+<span class="fc" id="L60">		super();</span>
+<span class="fc" id="L61">		this.custID = custID;</span>
+<span class="fc" id="L62">		Itteration = itteration;</span>
+<span class="fc" id="L63">	}</span>
+
+
+
+	public Order(Long orderID, Long itemID, Integer quantity) {
+<span class="fc" id="L68">		super();</span>
+<span class="fc" id="L69">		this.orderID = orderID;</span>
+<span class="fc" id="L70">		this.itemID = itemID;</span>
+<span class="fc" id="L71">		this.quantity = quantity;</span>
+<span class="fc" id="L72">	}</span>
+
+
+
+	//order constructor
+	public Order(Long orderID, Long custID) {
+<span class="fc" id="L78">		super();</span>
+<span class="fc" id="L79">		this.orderID = orderID;</span>
+<span class="fc" id="L80">		this.custID = custID;</span>
+
+<span class="fc" id="L82">	}</span>
+	
+
+
+	public Order(Long custID) {
+<span class="fc" id="L87">		super();</span>
+<span class="fc" id="L88">		this.custID = custID;</span>
+<span class="fc" id="L89">	}</span>
+
+
+
+	public Long getCustID() {
+<span class="fc" id="L94">		return custID;</span>
+	}
+
+
+	public void setCustID(Long custID) {
+<span class="fc" id="L99">		this.custID = custID;</span>
+<span class="fc" id="L100">	}</span>
+
+
+	public Long getOrderID() {
+<span class="fc" id="L104">		return orderID;</span>
+	}
+
+
+	public void setOrderID(Long orderID) {
+<span class="fc" id="L109">		this.orderID = orderID;</span>
+<span class="fc" id="L110">	}</span>
+	
+	
+	@Override
+	public String toString() {
+<span class="fc" id="L115">		return &quot;[orderID=&quot; + orderID + &quot;, itemID=&quot; + itemID + &quot;, quantity=&quot; + quantity + &quot;]&quot;;</span>
+	}
+
+
+	
+
+	//orderline getters &amp; setters
+
+	public Long getId() {
+<span class="fc" id="L124">		return id;</span>
+	}
+
+
+	public void setId(Long id) {
+<span class="fc" id="L129">		this.id = id;</span>
+<span class="fc" id="L130">	}</span>
+
+
+	public Long getItemID() {
+<span class="fc" id="L134">		return itemID;</span>
+	}
+
+
+	public void setItemID(Long itemID) {
+<span class="fc" id="L139">		this.itemID = itemID;</span>
+<span class="fc" id="L140">	}</span>
+
+
+	public Integer getQuantity() {
+<span class="fc" id="L144">		return quantity;</span>
+	}
+
+
+	public void setQuantity(Integer quantity) {
+<span class="fc" id="L149">		this.quantity = quantity;</span>
+<span class="fc" id="L150">	}</span>
+
+
+
+	public Integer getItteration() {
+<span class="fc" id="L155">		return Itteration;</span>
+	}
+
+
+
+	public void setItteration(Integer itteration) {
+<span class="fc" id="L161">		Itteration = itteration;</span>
+<span class="fc" id="L162">	} </span>
+	
+	@Override
+	public int hashCode() {
+<span class="fc" id="L166">		final int prime = 31;</span>
+<span class="fc" id="L167">		int result = 1;</span>
+<span class="fc bfc" id="L168" title="All 2 branches covered.">		result = prime * result + ((custID == null) ? 0 : custID.hashCode());</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">		result = prime * result + ((id == null) ? 0 : id.hashCode());</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">		result = prime * result + ((orderID == null) ? 0 : orderID.hashCode());</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">		result = prime * result + ((itemID == null) ? 0 : itemID.hashCode());</span>
+<span class="fc bfc" id="L172" title="All 2 branches covered.">		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());</span>
+<span class="fc bfc" id="L173" title="All 2 branches covered.">		result = prime * result + ((Itteration == null) ? 0 : Itteration.hashCode());</span>
+<span class="fc" id="L174">		return result;</span>
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+<span class="fc bfc" id="L179" title="All 2 branches covered.">		if (this == obj)</span>
+<span class="fc" id="L180">			return true;</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">		if (obj == null)</span>
+<span class="fc" id="L182">			return false;</span>
+<span class="fc bfc" id="L183" title="All 2 branches covered.">		if (getClass() != obj.getClass())</span>
+<span class="fc" id="L184">			return false;</span>
+<span class="fc" id="L185">		Order other = (Order) obj;</span>
+<span class="fc bfc" id="L186" title="All 2 branches covered.">		if (custID == null) {</span>
+<span class="fc bfc" id="L187" title="All 2 branches covered.">			if (other.custID != null)</span>
+<span class="fc" id="L188">				return false;</span>
+<span class="fc bfc" id="L189" title="All 2 branches covered.">		} else if (!custID.equals(other.custID))</span>
+<span class="fc" id="L190">			return false;</span>
+<span class="fc bfc" id="L191" title="All 2 branches covered.">		if (id == null) {</span>
+<span class="fc bfc" id="L192" title="All 2 branches covered.">			if (other.id != null)</span>
+<span class="fc" id="L193">				return false;</span>
+<span class="fc bfc" id="L194" title="All 2 branches covered.">		} else if (!id.equals(other.id))</span>
+<span class="fc" id="L195">			return false;</span>
+<span class="fc bfc" id="L196" title="All 2 branches covered.">		if (orderID == null) {</span>
+<span class="fc bfc" id="L197" title="All 2 branches covered.">			if (other.orderID != null)</span>
+<span class="fc" id="L198">				return false;</span>
+<span class="fc bfc" id="L199" title="All 2 branches covered.">		} else if (!orderID.equals(other.orderID))</span>
+<span class="fc" id="L200">			return false;</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">		if (itemID == null) {</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">			if (other.itemID != null)</span>
+<span class="fc" id="L203">				return false;</span>
+<span class="fc bfc" id="L204" title="All 2 branches covered.">		} else if (!itemID.equals(other.itemID))</span>
+<span class="fc" id="L205">			return false;</span>
+<span class="fc bfc" id="L206" title="All 2 branches covered.">		if (quantity == null) {</span>
+<span class="fc bfc" id="L207" title="All 2 branches covered.">			if (other.quantity != null)</span>
+<span class="fc" id="L208">				return false;</span>
+<span class="fc bfc" id="L209" title="All 2 branches covered.">		} else if (!quantity.equals(other.quantity))</span>
+<span class="fc" id="L210">			return false;</span>
+<span class="fc bfc" id="L211" title="All 2 branches covered.">		if (Itteration == null) {</span>
+<span class="fc bfc" id="L212" title="All 2 branches covered.">			if (other.Itteration != null)</span>
+<span class="fc" id="L213">				return false;</span>
+<span class="fc bfc" id="L214" title="All 2 branches covered.">		} else if (!Itteration.equals(other.Itteration))</span>
+<span class="fc" id="L215">			return false;</span>
+<span class="fc" id="L216">		return true;</span>
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
